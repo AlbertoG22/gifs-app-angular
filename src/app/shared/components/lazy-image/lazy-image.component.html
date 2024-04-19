@@ -1,12 +1,15 @@
 
 <div class="d-flex justify-content-center">
-  <!-- <img
+  <img
     [src]="url"
     alt="{{ alt }}"
     class="card-img-top"
-  > -->
+    (load)="onLoad()"
+    [ngStyle]="{ display: hasLoaded ? '' : 'none' }"
+  >
 
   <img
+    *ngIf="!hasLoaded"
     src="assets/loader.svg"
     height="35"
     width="35"
